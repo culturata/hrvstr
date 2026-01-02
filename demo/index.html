@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>hrvstr Widget Demo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #fff;
+    }
+
+    .demo-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .demo-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .demo-header h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .demo-header p {
+      font-size: 18px;
+      color: #666;
+    }
+
+    .demo-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .demo-section {
+      margin-bottom: 60px;
+    }
+
+    .demo-section h2 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .demo-section p {
+      font-size: 16px;
+      margin-bottom: 16px;
+      color: #555;
+    }
+
+    .demo-widget {
+      margin: 40px 0;
+    }
+
+    .demo-info {
+      background: #f5f5f5;
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 40px;
+    }
+
+    .demo-info h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .demo-info ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .demo-info li {
+      padding: 8px 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .demo-info li:last-child {
+      border-bottom: none;
+    }
+
+    .demo-info code {
+      background: #fff;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+    }
+
+    .demo-article {
+      margin: 60px 0;
+      padding: 40px;
+      background: #fafafa;
+      border-radius: 8px;
+    }
+
+    .demo-article h3 {
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+
+    .demo-article p {
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    @media (max-width: 768px) {
+      .demo-header h1 {
+        font-size: 32px;
+      }
+
+      .demo-header p {
+        font-size: 16px;
+      }
+
+      .demo-article {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-container">
+    <div class="demo-header">
+      <h1>hrvstr Widget Demo</h1>
+      <p>Embeddable short-form feed with Google Ad Manager integration</p>
+    </div>
+
+    <div class="demo-content">
+      <div class="demo-section">
+        <h2>Live Widget Demo</h2>
+        <p>
+          Click the widget below to open the lightbox feed. Navigate using arrow keys
+          (desktop) or swipe up/down (mobile). Press ESC to close.
+        </p>
+
+        <div class="demo-widget">
+          <!-- hrvstr widget will be inserted here -->
+          <script src="/hrvstr.umd.js" data-feed-id="demo" data-placement="inline"></script>
+        </div>
+      </div>
+
+      <div class="demo-info">
+        <h3>How It Works</h3>
+        <ul>
+          <li><strong>Feed Rotation:</strong> First session of the day starts with Recent tier. Subsequent sessions rotate through Popular and Evergreen.</li>
+          <li><strong>Companion Ads:</strong> 320x50 banner appears on every content card</li>
+          <li><strong>Full Ad Cards:</strong> Inserted every 4 content cards, showing VAST video (with skip) or display fallback</li>
+          <li><strong>Analytics:</strong> Events are batched and sent to backend every 3 seconds</li>
+          <li><strong>Navigation:</strong> Desktop: arrow keys and buttons. Mobile: swipe gestures</li>
+        </ul>
+      </div>
+
+      <div class="demo-article">
+        <h3>Sample Article Content</h3>
+        <p>
+          This is a sample article to demonstrate the hrvstr widget in a real content context.
+          The widget appears inline within the page flow and doesn't break the layout.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+          incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+        <p>
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+          fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+      </div>
+
+      <div class="demo-section">
+        <h2>Integration Code</h2>
+        <p>
+          To integrate hrvstr on your site, simply add this single script tag:
+        </p>
+        <pre style="background: #f5f5f5; padding: 16px; border-radius: 4px; overflow-x: auto;"><code>&lt;script src="hrvstr.umd.js" data-feed-id="demo" data-placement="inline"&gt;&lt;/script&gt;</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Optional: Log analytics events to console for demo purposes
+    window.dataLayer = window.dataLayer || [];
+    const originalPush = window.dataLayer.push;
+    window.dataLayer.push = function(...args) {
+      console.log('GTM Event:', args[0]);
+      return originalPush.apply(this, args);
+    };
+  </script>
+</body>
+</html>
