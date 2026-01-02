@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>320x50 Companion Banner Mockups - hrvstr</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f0f0f0;
+      padding: 40px 20px;
+    }
+
+    .mockup-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: 32px;
+    }
+
+    .section {
+      margin-bottom: 60px;
+    }
+
+    .section h2 {
+      margin-bottom: 20px;
+      font-size: 24px;
+      color: #333;
+    }
+
+    .section-description {
+      margin-bottom: 30px;
+      color: #666;
+      font-size: 16px;
+    }
+
+    .mockup-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    /* Card mockup showing banner in context */
+    .card-mockup {
+      background: #000;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .card-content {
+      height: 600px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 18px;
+      font-weight: 600;
+      position: relative;
+    }
+
+    .card-content::after {
+      content: 'Content Card';
+      opacity: 0.3;
+      font-size: 48px;
+      font-weight: 700;
+    }
+
+    /* 320x50 banner area */
+    .companion-banner {
+      width: 100%;
+      height: 50px;
+      background: #222;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-top: 1px solid #333;
+    }
+
+    .companion-banner-inner {
+      width: 320px;
+      height: 50px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Sample banner creatives */
+    .banner-creative {
+      width: 320px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+      position: relative;
+    }
+
+    .banner-creative:hover {
+      transform: scale(1.02);
+    }
+
+    /* Creative 1: Brand + CTA */
+    .creative-1 {
+      background: linear-gradient(90deg, #FF6B6B 0%, #FF8E53 100%);
+      color: white;
+    }
+
+    .creative-1 .brand {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .creative-1 .message {
+      font-size: 12px;
+      margin-top: 2px;
+    }
+
+    .creative-1 .cta {
+      background: white;
+      color: #FF6B6B;
+      padding: 6px 14px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* Creative 2: Product focused */
+    .creative-2 {
+      background: #1a1a1a;
+      color: white;
+    }
+
+    .creative-2 .product-image {
+      width: 42px;
+      height: 42px;
+      background: #4ECDC4;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .creative-2 .product-info {
+      flex: 1;
+      margin: 0 12px;
+    }
+
+    .creative-2 .product-name {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .creative-2 .product-price {
+      font-size: 11px;
+      color: #4ECDC4;
+      font-weight: 700;
+    }
+
+    .creative-2 .shop-btn {
+      background: white;
+      color: #1a1a1a;
+      padding: 6px 12px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* Creative 3: Minimal text */
+    .creative-3 {
+      background: white;
+      color: #333;
+      border: 1px solid #ddd;
+    }
+
+    .creative-3 .logo {
+      width: 40px;
+      height: 40px;
+      background: #6C5CE7;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 18px;
+    }
+
+    .creative-3 .message-block {
+      flex: 1;
+      margin: 0 12px;
+    }
+
+    .creative-3 .headline {
+      font-size: 13px;
+      font-weight: 700;
+      color: #333;
+    }
+
+    .creative-3 .subline {
+      font-size: 10px;
+      color: #666;
+    }
+
+    .creative-3 .arrow {
+      font-size: 20px;
+      color: #6C5CE7;
+    }
+
+    /* Creative 4: Video streaming service */
+    .creative-4 {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+
+    .creative-4 .stream-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+
+    .creative-4 .stream-info {
+      flex: 1;
+      margin: 0 12px;
+    }
+
+    .creative-4 .stream-title {
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .creative-4 .stream-subtitle {
+      font-size: 10px;
+      opacity: 0.9;
+    }
+
+    .creative-4 .watch-btn {
+      background: white;
+      color: #667eea;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* Creative 5: E-commerce promo */
+    .creative-5 {
+      background: #000;
+      color: #FFD700;
+    }
+
+    .creative-5 .promo-text {
+      flex: 1;
+    }
+
+    .creative-5 .discount {
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+    }
+
+    .creative-5 .promo-desc {
+      font-size: 9px;
+      color: white;
+      margin-top: -2px;
+    }
+
+    .creative-5 .code {
+      background: #FFD700;
+      color: #000;
+      padding: 6px 10px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 900;
+      font-family: monospace;
+      margin: 0 8px;
+    }
+
+    .creative-5 .arrow-cta {
+      font-size: 24px;
+      color: #FFD700;
+    }
+
+    /* Standalone banner samples */
+    .banner-samples {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .banner-sample {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .banner-label {
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .dimensions {
+      display: inline-block;
+      background: #f0f0f0;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      margin-bottom: 12px;
+      color: #666;
+      font-family: monospace;
+    }
+
+    /* Mobile mockup */
+    .mobile-mockup {
+      max-width: 375px;
+      margin: 0 auto;
+      background: #000;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .mobile-mockup .card-content {
+      height: 667px;
+    }
+
+    .specs {
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 40px;
+    }
+
+    .specs h3 {
+      margin-bottom: 12px;
+      font-size: 18px;
+    }
+
+    .specs ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .specs li {
+      padding: 8px 0;
+      border-bottom: 1px solid #e0e0e0;
+      font-size: 14px;
+    }
+
+    .specs li:last-child {
+      border-bottom: none;
+    }
+
+    .specs code {
+      background: #fff;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: monospace;
+      font-size: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .mockup-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="mockup-container">
+    <h1>320x50 Companion Banner Mockups</h1>
+
+    <div class="section">
+      <h2>In-Context: Desktop Content Cards</h2>
+      <p class="section-description">
+        Companion banners appear at the bottom of every content card in the feed.
+        The banner is centered in a fixed 320x50 slot with a dark background (#222).
+      </p>
+
+      <div class="mockup-grid">
+        <div class="card-mockup">
+          <div class="card-content" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+          </div>
+          <div class="companion-banner">
+            <div class="companion-banner-inner">
+              <div class="banner-creative creative-1">
+                <div>
+                  <div class="brand">BrandName</div>
+                  <div class="message">Summer Sale - Up to 50% Off</div>
+                </div>
+                <div class="cta">Shop Now</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-mockup">
+          <div class="card-content" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+          </div>
+          <div class="companion-banner">
+            <div class="companion-banner-inner">
+              <div class="banner-creative creative-2">
+                <div class="product-image">🎧</div>
+                <div class="product-info">
+                  <div class="product-name">Wireless Headphones Pro</div>
+                  <div class="product-price">$99.99 - Limited Time</div>
+                </div>
+                <div class="shop-btn">Buy</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-mockup">
+          <div class="card-content" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+          </div>
+          <div class="companion-banner">
+            <div class="companion-banner-inner">
+              <div class="banner-creative creative-3">
+                <div class="logo">A</div>
+                <div class="message-block">
+                  <div class="headline">Try Premium Free for 30 Days</div>
+                  <div class="subline">Cancel anytime. No commitments.</div>
+                </div>
+                <div class="arrow">→</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-mockup">
+          <div class="card-content" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+          </div>
+          <div class="companion-banner">
+            <div class="companion-banner-inner">
+              <div class="banner-creative creative-4">
+                <div class="stream-icon">▶</div>
+                <div class="stream-info">
+                  <div class="stream-title">Stream the Latest Episodes</div>
+                  <div class="stream-subtitle">New season available now</div>
+                </div>
+                <div class="watch-btn">Watch</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-mockup">
+          <div class="card-content" style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);">
+          </div>
+          <div class="companion-banner">
+            <div class="companion-banner-inner">
+              <div class="banner-creative creative-5">
+                <div class="promo-text">
+                  <div class="discount">50% OFF</div>
+                  <div class="promo-desc">First order only</div>
+                </div>
+                <div class="code">SAVE50</div>
+                <div class="arrow-cta">→</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Mobile View</h2>
+      <p class="section-description">
+        On mobile, the banner maintains its 320x50 size and is centered in the available space.
+      </p>
+
+      <div class="mobile-mockup">
+        <div class="card-content" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+        </div>
+        <div class="companion-banner">
+          <div class="companion-banner-inner">
+            <div class="banner-creative creative-4">
+              <div class="stream-icon">▶</div>
+              <div class="stream-info">
+                <div class="stream-title">Stream the Latest Episodes</div>
+                <div class="stream-subtitle">New season available now</div>
+              </div>
+              <div class="watch-btn">Watch</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Standalone Banner Samples</h2>
+      <p class="section-description">
+        Individual banner creative examples at actual size (320x50).
+      </p>
+
+      <div class="banner-samples">
+        <div class="banner-sample">
+          <div class="banner-label">Creative 1: Brand + CTA</div>
+          <span class="dimensions">320 × 50</span>
+          <div class="banner-creative creative-1">
+            <div>
+              <div class="brand">BrandName</div>
+              <div class="message">Summer Sale - Up to 50% Off</div>
+            </div>
+            <div class="cta">Shop Now</div>
+          </div>
+        </div>
+
+        <div class="banner-sample">
+          <div class="banner-label">Creative 2: Product Focused</div>
+          <span class="dimensions">320 × 50</span>
+          <div class="banner-creative creative-2">
+            <div class="product-image">🎧</div>
+            <div class="product-info">
+              <div class="product-name">Wireless Headphones Pro</div>
+              <div class="product-price">$99.99 - Limited Time</div>
+            </div>
+            <div class="shop-btn">Buy</div>
+          </div>
+        </div>
+
+        <div class="banner-sample">
+          <div class="banner-label">Creative 3: Minimal Premium</div>
+          <span class="dimensions">320 × 50</span>
+          <div class="banner-creative creative-3">
+            <div class="logo">A</div>
+            <div class="message-block">
+              <div class="headline">Try Premium Free for 30 Days</div>
+              <div class="subline">Cancel anytime. No commitments.</div>
+            </div>
+            <div class="arrow">→</div>
+          </div>
+        </div>
+
+        <div class="banner-sample">
+          <div class="banner-label">Creative 4: Streaming Service</div>
+          <span class="dimensions">320 × 50</span>
+          <div class="banner-creative creative-4">
+            <div class="stream-icon">▶</div>
+            <div class="stream-info">
+              <div class="stream-title">Stream the Latest Episodes</div>
+              <div class="stream-subtitle">New season available now</div>
+            </div>
+            <div class="watch-btn">Watch</div>
+          </div>
+        </div>
+
+        <div class="banner-sample">
+          <div class="banner-label">Creative 5: Promo Code</div>
+          <span class="dimensions">320 × 50</span>
+          <div class="banner-creative creative-5">
+            <div class="promo-text">
+              <div class="discount">50% OFF</div>
+              <div class="promo-desc">First order only</div>
+            </div>
+            <div class="code">SAVE50</div>
+            <div class="arrow-cta">→</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="specs">
+      <h3>Technical Specifications</h3>
+      <ul>
+        <li><strong>Size:</strong> <code>320 × 50 pixels</code></li>
+        <li><strong>Placement:</strong> Bottom of every content card</li>
+        <li><strong>Background:</strong> <code>#222</code> (dark gray container)</li>
+        <li><strong>Frequency:</strong> One request per card change</li>
+        <li><strong>Refresh:</strong> No timed refresh</li>
+        <li><strong>Suppression:</strong> Hidden on full ad cards</li>
+        <li><strong>Ad Unit:</strong> <code>/{networkCode}/hrvstr_companion</code></li>
+        <li><strong>Targeting:</strong> feed_id, tier, card_index, slot=companion, device</li>
+        <li><strong>Format:</strong> Standard IAB 320x50 mobile leaderboard</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
