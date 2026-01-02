@@ -1,0 +1,273 @@
+/* hrvstr widget styles */
+
+.hrvstr-teaser {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: #f5f5f5;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+  max-width: 600px;
+}
+
+.hrvstr-teaser:hover {
+  background: #e8e8e8;
+}
+
+.hrvstr-teaser-thumbnail {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.hrvstr-teaser-content {
+  flex: 1;
+}
+
+.hrvstr-teaser-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  color: #333;
+}
+
+.hrvstr-teaser-cta {
+  display: inline-block;
+  padding: 8px 16px;
+  background: #000;
+  color: white;
+  border-radius: 4px;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+/* Lightbox overlay */
+
+.hrvstr-lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 999999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hrvstr-lightbox-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.hrvstr-lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Card container */
+
+.hrvstr-card-container {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  height: 90vh;
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .hrvstr-card-container {
+    max-width: 100%;
+    height: 100vh;
+    border-radius: 0;
+  }
+}
+
+/* Navigation buttons (desktop) */
+
+.hrvstr-nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.hrvstr-nav-button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.hrvstr-nav-button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.hrvstr-nav-prev {
+  left: 16px;
+}
+
+.hrvstr-nav-next {
+  right: 16px;
+}
+
+@media (max-width: 768px) {
+  .hrvstr-nav-button {
+    display: none;
+  }
+}
+
+/* Progress indicator */
+
+.hrvstr-progress {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  z-index: 10;
+}
+
+/* Content card */
+
+.hrvstr-content-card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #000;
+}
+
+.hrvstr-embed-container {
+  flex: 1;
+  position: relative;
+  background: #000;
+}
+
+.hrvstr-embed-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.hrvstr-embed-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #1a1a1a;
+}
+
+.hrvstr-fallback-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.hrvstr-fallback-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  color: white;
+  text-align: center;
+}
+
+.hrvstr-fallback-link {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: white;
+  color: black;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+/* Companion ad */
+
+.hrvstr-companion-ad {
+  width: 100%;
+  height: 50px;
+  background: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Full ad card */
+
+.hrvstr-full-ad-card {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+}
+
+.hrvstr-ad-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Loading spinner */
+
+.hrvstr-loading {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: hrvstr-spin 1s linear infinite;
+}
+
+@keyframes hrvstr-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
